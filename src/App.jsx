@@ -9,12 +9,12 @@ import { ChevronUp, ChevronDown } from 'lucide-react'
 import DownloadMenu from './components/DownloadMenu'
 
 const REELS = [
-  { id: 'cta', Comp: CardSix, label: 'Shop', bg: '#0B0B0B' },
-  { id: 'hero', Comp: CardOne, label: 'Hero', bg: '#0B0B0B' },
-  { id: 'mission', Comp: CardTwo, label: 'Mission', bg: '#0B0B0B' },
-  { id: 'specs', Comp: CardThree, label: 'Specs', bg: '#ffffff' },
-  { id: 'kits', Comp: CardFour, label: 'Kits', bg: '#0B0B0B' },
-  { id: 'tech', Comp: CardFive, label: 'Tech', bg: '#0B0B0B' },
+  { id: 'cta', Comp: CardSix, label: 'Shop', bg: '#0B0B0B', video: './videos/card-cta.mp4' },
+  { id: 'hero', Comp: CardOne, label: 'Hero', bg: '#0B0B0B', video: './videos/card-hero.mp4' },
+  { id: 'mission', Comp: CardTwo, label: 'Mission', bg: '#0B0B0B', video: './videos/card-mission.mp4' },
+  { id: 'specs', Comp: CardThree, label: 'Specs', bg: '#ffffff', video: './videos/card-specs.mp4' },
+  { id: 'kits', Comp: CardFour, label: 'Kits', bg: '#0B0B0B', video: './videos/card-kits.mp4' },
+  { id: 'tech', Comp: CardFive, label: 'Tech', bg: '#0B0B0B', video: './videos/card-tech.mp4' },
 ]
 
 export default function App() {
@@ -75,13 +75,13 @@ export default function App() {
         className="h-full w-full overflow-y-scroll snap-y snap-mandatory no-scrollbar"
         style={{ scrollBehavior: 'smooth' }}
       >
-        {REELS.map(({ id, Comp, bg }, i) => (
+        {REELS.map(({ id, Comp, bg, video }, i) => (
           <section
             key={id}
             data-reel={i}
             className="w-full h-screen snap-start snap-always flex items-center justify-center relative"
           >
-            <ReelFrame cardId={id} bg={bg}><Comp /></ReelFrame>
+            <ReelFrame cardId={id} bg={bg} videoFile={video}><Comp /></ReelFrame>
           </section>
         ))}
       </div>
@@ -140,7 +140,7 @@ export default function App() {
   )
 }
 
-function ReelFrame({ children, cardId, bg }) {
+function ReelFrame({ children, cardId, bg, videoFile }) {
   const innerRef = useRef(null)
 
   return (
@@ -179,7 +179,7 @@ function ReelFrame({ children, cardId, bg }) {
       </div>
       <div className="absolute inset-0 z-50 pointer-events-none">
         <div className="pointer-events-auto">
-          <DownloadMenu cardRef={innerRef} cardId={cardId} bg={bg} />
+          <DownloadMenu cardRef={innerRef} cardId={cardId} bg={bg} videoFile={videoFile} />
         </div>
       </div>
     </div>
