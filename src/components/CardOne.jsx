@@ -32,7 +32,7 @@ export default function CardOne() {
       onClick={() => window.open('https://agrifuture.tech/collections/p100-pro', '_blank')}
     >
       <motion.div
-        className="absolute inset-0 rounded-[18px]"
+        className="absolute inset-0 rounded-[18px] overflow-hidden"
         style={{ rotateX: rotX, rotateY: rotY, transformStyle: 'preserve-3d' }}
       >
         <div className="absolute inset-0 rounded-[18px] overflow-hidden">

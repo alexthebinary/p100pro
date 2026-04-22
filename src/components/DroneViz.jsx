@@ -107,8 +107,8 @@ export default function DroneViz({ className = '', style = {} }) {
         style={{
           position: 'absolute',
           top: '8%',
-          left: '0%',
-          width: '100%',
+          left: '3%',
+          width: '94%',
           height: 'auto',
           transform: 'translateZ(0px)',
           pointerEvents: 'none',
