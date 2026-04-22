@@ -6,18 +6,23 @@ export default function CardSix() {
       className="relative w-[270px] h-[480px] bg-black rounded-[18px] overflow-hidden scanlines grain cursor-pointer"
       onClick={() => window.open('https://agrifuture.tech/collections/p100-pro', '_blank')}
     >
-      {/* Ken Burns field background */}
-      <img
-        src="./field-hero.webp"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover animate-ken-burns-slow pointer-events-none"
+      {/* Ken Burns field background — oversized to prevent edge bleed */}
+      <div
+        className="absolute pointer-events-none animate-ken-burns-slow"
+        style={{
+          inset: -20,
+          backgroundImage: 'url(./field-hero.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 60%',
+          filter: 'brightness(0.3) saturate(0.7)',
+        }}
       />
       {/* Dark overlay */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.85) 100%)',
+            'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.7) 100%)',
         }}
       />
 
