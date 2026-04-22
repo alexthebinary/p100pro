@@ -64,15 +64,28 @@ export default function App() {
   })
 
   return (
-    <div
-      className="fixed inset-0"
-      style={{
-        background: 'linear-gradient(135deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%)',
-      }}
-    >
+    <div className="fixed inset-0">
+      {/* Sunflower field parallax background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'url(./sunflower-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          filter: 'brightness(0.35) saturate(0.8)',
+        }}
+      />
+      {/* Warm overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.4) 100%)',
+        }}
+      />
       <div
         ref={feedRef}
-        className="h-full w-full overflow-y-scroll snap-y snap-mandatory no-scrollbar"
+        className="relative h-full w-full overflow-y-scroll snap-y snap-mandatory no-scrollbar"
         style={{ scrollBehavior: 'smooth' }}
       >
         {REELS.map(({ id, Comp, bg, video }, i) => (
